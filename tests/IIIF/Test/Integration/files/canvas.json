@@ -1,0 +1,23 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://example.org/iiif/book1/canvas/p1",
+  "@type": "sc:Canvas",
+  "label": "p. 1",
+  "height":1000,
+  "width":750,
+
+  "images": [
+    {
+      "@type": "oa:Annotation",
+      "motivation": "sc:painting",
+      "on": "http://example.org/iiif/book1/canvas/p1"
+    }
+  ],
+  "otherContent": [
+    {
+      "@id": "http://example.org/iiif/book1/list/p1",
+      "@type": "sc:AnnotationList"
+    }
+  ]
+
+}

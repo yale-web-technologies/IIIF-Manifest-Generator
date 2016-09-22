@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/IIIF.html">\IIIF</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">175</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-709003317"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-709003317" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1584833145"></a>
+                                <a href="../namespaces/IIIF.html" style="margin-left: 30px; padding-left: 0">IIIF</a>
+            </div>
+            <div id="namespace-1584833145" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1738252290"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.html" style="margin-left: 30px; padding-left: 0">PresentationAPI</a>
+            </div>
+            <div id="namespace-1738252290" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1702620950"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Links.html" style="margin-left: 30px; padding-left: 0">Links</a>
+            </div>
+            <div id="namespace-1702620950" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Links.LinkInterface.html">LinkInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html">LinkAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Related.html">Related</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Rendering.html">Rendering</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.SeeAlso.html">SeeAlso</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Service.html">Service</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-308661391"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Metadata.html" style="margin-left: 30px; padding-left: 0">Metadata</a>
+            </div>
+            <div id="namespace-308661391" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Metadata.MetadataInterface.html">MetadataInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Metadata.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1903758042"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Parameters.html" style="margin-left: 30px; padding-left: 0">Parameters</a>
+            </div>
+            <div id="namespace-1903758042" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.DCType.html">DCType</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html">Identifier</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ImageProfileSupport.html">ImageProfileSupport</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Paging.html">Paging</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingDirection.html">ViewingDirection</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingHint.html">ViewingHint</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1988151656"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Properties.html" style="margin-left: 30px; padding-left: 0">Properties</a>
+            </div>
+            <div id="namespace-1988151656" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyInterface.html">PropertyInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Logo.html">Logo</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.MimeAbstract.html">MimeAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyAbstract.html">PropertyAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Thumbnail.html">Thumbnail</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-907024704"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Resources.html" style="margin-left: 30px; padding-left: 0">Resources</a>
+            </div>
+            <div id="namespace-907024704" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceInterface.html">ResourceInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Annotation.html">Annotation</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.AnnotationList.html">AnnotationList</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Canvas.html">Canvas</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Content.html">Content</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Layer.html">Layer</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Manifest.html">Manifest</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Range.html">Range</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceAbstract.html">ResourceAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Sequence.html">Sequence</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-478422953"></a>
+                                <a href="../namespaces/IIIF.Utils.html" style="margin-left: 30px; padding-left: 0">Utils</a>
+            </div>
+            <div id="namespace-478422953" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/IIIF.Utils.ArrayCreator.html">ArrayCreator</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.Utils.Validator.html">Validator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/IIIF.Generator.html">Generator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/IIIF.PresentationAPI.Links.html">\IIIF\PresentationAPI\Links</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\IIIF\PresentationAPI\Links</small>SeeAlso</h1>
+                    <p><em>Implemenation for SeeAlso property
+http://iiif.io/api/presentation/2.1/#linking-properties</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_setID" class="">setID()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_getID" class="">getID()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_setFormat" class="">setFormat()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_getFormat" class="">getFormat()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_setProfile" class="">setProfile()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_getProfile" class="">getProfile()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_setLabel" class="">setLabel()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_getLabel" class="">getLabel()</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.SeeAlso.html#method_toArray" class="">toArray()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#property_id" class="">$id</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#property_format" class="">$format</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#property_profile" class="">$profile</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#property_label" class="">$label</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/PresentationAPI.Links.SeeAlso.html"><div class="path-wrapper">PresentationAPI/Links/SeeAlso.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html">\IIIF\PresentationAPI\Links\LinkAbstract</a></div>
+                                                                                                    <div class="namespace-wrapper">\IIIF\PresentationAPI\Links\SeeAlso</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_id" name="property_id" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$id</h3>
+                <pre class="signature">$id : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_format" name="property_format" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$format</h3>
+                <pre class="signature">$format : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_profile" name="property_profile" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$profile</h3>
+                <pre class="signature">$profile : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_label" name="property_label" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$label</h3>
+                <pre class="signature">$label : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setID" name="method_setID" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setID()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setID(  <span class="argument">$id</span>) </pre>
+                <p><em>Set the id.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/IIIF.PresentationAPI.Properties.PropertyInterface.html#method_setID"><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getID" name="method_getID" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getID()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getID() : string</pre>
+                <p><em>Get the id.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setFormat" name="method_setFormat" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setFormat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setFormat(string  <span class="argument">$format</span>) </pre>
+                <p><em>Set the format.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$format </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkInterface.html#method_setFormat"><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getFormat" name="method_getFormat" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getFormat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getFormat() </pre>
+                <p><em>Get the format.</em></p>
+                <p>return @string</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setProfile" name="method_setProfile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setProfile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setProfile(  <span class="argument">$profile</span>) </pre>
+                <p><em>Set the profile.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$profile </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkInterface.html#method_setProfile"><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getProfile" name="method_getProfile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getProfile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getProfile() </pre>
+                <p><em>Get the profile.</em></p>
+                <p>return @string</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLabel" name="method_setLabel" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLabel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLabel(string  <span class="argument">$label</span>) </pre>
+                <p><em>Set the profile.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$label </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkInterface.html#method_setLabel"><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLabel" name="method_getLabel" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLabel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLabel() </pre>
+                <p><em>{@inheritDoc}
+return @string</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html"><div class="path-wrapper">\IIIF\PresentationAPI\Links\LinkAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_toArray" name="method_toArray" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">toArray()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">toArray() </pre>
+                <p><em>Convert objects inside the classes to arrays.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html#method_toArray"><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">SeeAlso.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/PresentationAPI/Links/SeeAlso.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/IIIF.html">\IIIF</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on 
+
+September 22nd, 2016 at 15:26.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

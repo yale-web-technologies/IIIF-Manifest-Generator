@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/IIIF.html">\IIIF</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">175</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1928078403"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1928078403" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-162919598"></a>
+                                <a href="../namespaces/IIIF.html" style="margin-left: 30px; padding-left: 0">IIIF</a>
+            </div>
+            <div id="namespace-162919598" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-101731756"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.html" style="margin-left: 30px; padding-left: 0">PresentationAPI</a>
+            </div>
+            <div id="namespace-101731756" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1378184866"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Links.html" style="margin-left: 30px; padding-left: 0">Links</a>
+            </div>
+            <div id="namespace-1378184866" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Links.LinkInterface.html">LinkInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html">LinkAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Related.html">Related</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Rendering.html">Rendering</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.SeeAlso.html">SeeAlso</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Service.html">Service</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-476968910"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Metadata.html" style="margin-left: 30px; padding-left: 0">Metadata</a>
+            </div>
+            <div id="namespace-476968910" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Metadata.MetadataInterface.html">MetadataInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Metadata.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-306212675"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Parameters.html" style="margin-left: 30px; padding-left: 0">Parameters</a>
+            </div>
+            <div id="namespace-306212675" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.DCType.html">DCType</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html">Identifier</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ImageProfileSupport.html">ImageProfileSupport</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Paging.html">Paging</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingDirection.html">ViewingDirection</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingHint.html">ViewingHint</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-599499982"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Properties.html" style="margin-left: 30px; padding-left: 0">Properties</a>
+            </div>
+            <div id="namespace-599499982" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyInterface.html">PropertyInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Logo.html">Logo</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.MimeAbstract.html">MimeAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyAbstract.html">PropertyAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Thumbnail.html">Thumbnail</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1700291203"></a>
+                                <a href="../namespaces/IIIF.PresentationAPI.Resources.html" style="margin-left: 30px; padding-left: 0">Resources</a>
+            </div>
+            <div id="namespace-1700291203" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceInterface.html">ResourceInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Annotation.html">Annotation</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.AnnotationList.html">AnnotationList</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Canvas.html">Canvas</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Content.html">Content</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Layer.html">Layer</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Manifest.html">Manifest</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Range.html">Range</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceAbstract.html">ResourceAbstract</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Sequence.html">Sequence</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1924033277"></a>
+                                <a href="../namespaces/IIIF.Utils.html" style="margin-left: 30px; padding-left: 0">Utils</a>
+            </div>
+            <div id="namespace-1924033277" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/IIIF.Utils.ArrayCreator.html">ArrayCreator</a></li>
+                                                    <li class="class"><a href="../classes/IIIF.Utils.Validator.html">Validator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/IIIF.Generator.html">Generator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/IIIF.PresentationAPI.Parameters.html">\IIIF\PresentationAPI\Parameters</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\IIIF\PresentationAPI\Parameters</small>Identifier</h1>
+                    <p><em>Values used throughout the specification documentation</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <em>No public methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_ATTRIBUTION" class="">ATTRIBUTION</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_ATVALUE" class="">ATVALUE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_CANVASES" class="">CANVASES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_COLLECTIONS" class="">COLLECTIONS</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_CONTENTLAYER" class="">CONTENTLAYER</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_CONTEXT" class="">CONTEXT</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_DESCRIPTION" class="">DESCRIPTION</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_FORMAT" class="">FORMAT</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_FORMATS" class="">FORMATS</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_HEIGHT" class="">HEIGHT</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_ID" class="">ID</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_IMAGES" class="">IMAGES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_LABEL" class="">LABEL</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_LANG" class="">LANG</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_LANGUAGE" class="">LANGUAGE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_LICENSE" class="">LICENSE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_LOGO" class="">LOGO</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_MANIFESTS" class="">MANIFESTS</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_MAXAREA" class="">MAXAREA</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_MAXHEIGHT" class="">MAXHEIGHT</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_MAXWIDTH" class="">MAXWIDTH</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_MEMBERS" class="">MEMBERS</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_METADATA" class="">METADATA</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_MOTIVATION" class="">MOTIVATION</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_NAVDATE" class="">NAVDATE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_ON" class="">ON</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_OTHERCONTENT" class="">OTHERCONTENT</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_PROFILE" class="">PROFILE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_PROTOCOL" class="">PROTOCOL</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_QUALITIES" class="">QUALITIES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_RANGES" class="">RANGES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_RELATED" class="">RELATED</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_RENDERING" class="">RENDERING</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_RESOURCE" class="">RESOURCE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_RESOURCES" class="">RESOURCES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_SCALEFACTORS" class="">SCALEFACTORS</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_SEEALSO" class="">SEEALSO</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_SEQUENCES" class="">SEQUENCES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_SERVICE" class="">SERVICE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_SIZES" class="">SIZES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_STARTCANVAS" class="">STARTCANVAS</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_STRUCTURES" class="">STRUCTURES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_SUPPORTS" class="">SUPPORTS</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_THUMBNAIL" class="">THUMBNAIL</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_TILES" class="">TILES</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_TOTAL" class="">TOTAL</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_TYPE" class="">TYPE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_VALUE" class="">VALUE</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_VIEWINGDIRECTION" class="">VIEWINGDIRECTION</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_VIEWINGHINT" class="">VIEWINGHINT</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_WIDTH" class="">WIDTH</a><br />
+                                                                    <a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html#constant_WITHIN" class="">WITHIN</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/PresentationAPI.Parameters.Identifier.html"><div class="path-wrapper">PresentationAPI/Parameters/Identifier.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\IIIF\PresentationAPI\Parameters\Identifier</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                                    <a id="constants" name="constants"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ATTRIBUTION" name="constant_ATTRIBUTION" class="anchor"></a>
+            <article id="constant_ATTRIBUTION" class="constant">
+                <h3 class="">ATTRIBUTION</h3>
+                <pre class="signature">ATTRIBUTION</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ATVALUE" name="constant_ATVALUE" class="anchor"></a>
+            <article id="constant_ATVALUE" class="constant">
+                <h3 class="">ATVALUE</h3>
+                <pre class="signature">ATVALUE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CANVASES" name="constant_CANVASES" class="anchor"></a>
+            <article id="constant_CANVASES" class="constant">
+                <h3 class="">CANVASES</h3>
+                <pre class="signature">CANVASES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_COLLECTIONS" name="constant_COLLECTIONS" class="anchor"></a>
+            <article id="constant_COLLECTIONS" class="constant">
+                <h3 class="">COLLECTIONS</h3>
+                <pre class="signature">COLLECTIONS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CONTENTLAYER" name="constant_CONTENTLAYER" class="anchor"></a>
+            <article id="constant_CONTENTLAYER" class="constant">
+                <h3 class="">CONTENTLAYER</h3>
+                <pre class="signature">CONTENTLAYER</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CONTEXT" name="constant_CONTEXT" class="anchor"></a>
+            <article id="constant_CONTEXT" class="constant">
+                <h3 class="">CONTEXT</h3>
+                <pre class="signature">CONTEXT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DESCRIPTION" name="constant_DESCRIPTION" class="anchor"></a>
+            <article id="constant_DESCRIPTION" class="constant">
+                <h3 class="">DESCRIPTION</h3>
+                <pre class="signature">DESCRIPTION</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_FORMAT" name="constant_FORMAT" class="anchor"></a>
+            <article id="constant_FORMAT" class="constant">
+                <h3 class="">FORMAT</h3>
+                <pre class="signature">FORMAT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_FORMATS" name="constant_FORMATS" class="anchor"></a>
+            <article id="constant_FORMATS" class="constant">
+                <h3 class="">FORMATS</h3>
+                <pre class="signature">FORMATS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_HEIGHT" name="constant_HEIGHT" class="anchor"></a>
+            <article id="constant_HEIGHT" class="constant">
+                <h3 class="">HEIGHT</h3>
+                <pre class="signature">HEIGHT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ID" name="constant_ID" class="anchor"></a>
+            <article id="constant_ID" class="constant">
+                <h3 class="">ID</h3>
+                <pre class="signature">ID</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_IMAGES" name="constant_IMAGES" class="anchor"></a>
+            <article id="constant_IMAGES" class="constant">
+                <h3 class="">IMAGES</h3>
+                <pre class="signature">IMAGES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LABEL" name="constant_LABEL" class="anchor"></a>
+            <article id="constant_LABEL" class="constant">
+                <h3 class="">LABEL</h3>
+                <pre class="signature">LABEL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LANG" name="constant_LANG" class="anchor"></a>
+            <article id="constant_LANG" class="constant">
+                <h3 class="">LANG</h3>
+                <pre class="signature">LANG</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LANGUAGE" name="constant_LANGUAGE" class="anchor"></a>
+            <article id="constant_LANGUAGE" class="constant">
+                <h3 class="">LANGUAGE</h3>
+                <pre class="signature">LANGUAGE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LICENSE" name="constant_LICENSE" class="anchor"></a>
+            <article id="constant_LICENSE" class="constant">
+                <h3 class="">LICENSE</h3>
+                <pre class="signature">LICENSE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LOGO" name="constant_LOGO" class="anchor"></a>
+            <article id="constant_LOGO" class="constant">
+                <h3 class="">LOGO</h3>
+                <pre class="signature">LOGO</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MANIFESTS" name="constant_MANIFESTS" class="anchor"></a>
+            <article id="constant_MANIFESTS" class="constant">
+                <h3 class="">MANIFESTS</h3>
+                <pre class="signature">MANIFESTS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MAXAREA" name="constant_MAXAREA" class="anchor"></a>
+            <article id="constant_MAXAREA" class="constant">
+                <h3 class="">MAXAREA</h3>
+                <pre class="signature">MAXAREA</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MAXHEIGHT" name="constant_MAXHEIGHT" class="anchor"></a>
+            <article id="constant_MAXHEIGHT" class="constant">
+                <h3 class="">MAXHEIGHT</h3>
+                <pre class="signature">MAXHEIGHT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MAXWIDTH" name="constant_MAXWIDTH" class="anchor"></a>
+            <article id="constant_MAXWIDTH" class="constant">
+                <h3 class="">MAXWIDTH</h3>
+                <pre class="signature">MAXWIDTH</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MEMBERS" name="constant_MEMBERS" class="anchor"></a>
+            <article id="constant_MEMBERS" class="constant">
+                <h3 class="">MEMBERS</h3>
+                <pre class="signature">MEMBERS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_METADATA" name="constant_METADATA" class="anchor"></a>
+            <article id="constant_METADATA" class="constant">
+                <h3 class="">METADATA</h3>
+                <pre class="signature">METADATA</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MOTIVATION" name="constant_MOTIVATION" class="anchor"></a>
+            <article id="constant_MOTIVATION" class="constant">
+                <h3 class="">MOTIVATION</h3>
+                <pre class="signature">MOTIVATION</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_NAVDATE" name="constant_NAVDATE" class="anchor"></a>
+            <article id="constant_NAVDATE" class="constant">
+                <h3 class="">NAVDATE</h3>
+                <pre class="signature">NAVDATE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ON" name="constant_ON" class="anchor"></a>
+            <article id="constant_ON" class="constant">
+                <h3 class="">ON</h3>
+                <pre class="signature">ON</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_OTHERCONTENT" name="constant_OTHERCONTENT" class="anchor"></a>
+            <article id="constant_OTHERCONTENT" class="constant">
+                <h3 class="">OTHERCONTENT</h3>
+                <pre class="signature">OTHERCONTENT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_PROFILE" name="constant_PROFILE" class="anchor"></a>
+            <article id="constant_PROFILE" class="constant">
+                <h3 class="">PROFILE</h3>
+                <pre class="signature">PROFILE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_PROTOCOL" name="constant_PROTOCOL" class="anchor"></a>
+            <article id="constant_PROTOCOL" class="constant">
+                <h3 class="">PROTOCOL</h3>
+                <pre class="signature">PROTOCOL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_QUALITIES" name="constant_QUALITIES" class="anchor"></a>
+            <article id="constant_QUALITIES" class="constant">
+                <h3 class="">QUALITIES</h3>
+                <pre class="signature">QUALITIES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RANGES" name="constant_RANGES" class="anchor"></a>
+            <article id="constant_RANGES" class="constant">
+                <h3 class="">RANGES</h3>
+                <pre class="signature">RANGES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RELATED" name="constant_RELATED" class="anchor"></a>
+            <article id="constant_RELATED" class="constant">
+                <h3 class="">RELATED</h3>
+                <pre class="signature">RELATED</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RENDERING" name="constant_RENDERING" class="anchor"></a>
+            <article id="constant_RENDERING" class="constant">
+                <h3 class="">RENDERING</h3>
+                <pre class="signature">RENDERING</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RESOURCE" name="constant_RESOURCE" class="anchor"></a>
+            <article id="constant_RESOURCE" class="constant">
+                <h3 class="">RESOURCE</h3>
+                <pre class="signature">RESOURCE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RESOURCES" name="constant_RESOURCES" class="anchor"></a>
+            <article id="constant_RESOURCES" class="constant">
+                <h3 class="">RESOURCES</h3>
+                <pre class="signature">RESOURCES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SCALEFACTORS" name="constant_SCALEFACTORS" class="anchor"></a>
+            <article id="constant_SCALEFACTORS" class="constant">
+                <h3 class="">SCALEFACTORS</h3>
+                <pre class="signature">SCALEFACTORS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SEEALSO" name="constant_SEEALSO" class="anchor"></a>
+            <article id="constant_SEEALSO" class="constant">
+                <h3 class="">SEEALSO</h3>
+                <pre class="signature">SEEALSO</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SEQUENCES" name="constant_SEQUENCES" class="anchor"></a>
+            <article id="constant_SEQUENCES" class="constant">
+                <h3 class="">SEQUENCES</h3>
+                <pre class="signature">SEQUENCES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SERVICE" name="constant_SERVICE" class="anchor"></a>
+            <article id="constant_SERVICE" class="constant">
+                <h3 class="">SERVICE</h3>
+                <pre class="signature">SERVICE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SIZES" name="constant_SIZES" class="anchor"></a>
+            <article id="constant_SIZES" class="constant">
+                <h3 class="">SIZES</h3>
+                <pre class="signature">SIZES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_STARTCANVAS" name="constant_STARTCANVAS" class="anchor"></a>
+            <article id="constant_STARTCANVAS" class="constant">
+                <h3 class="">STARTCANVAS</h3>
+                <pre class="signature">STARTCANVAS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_STRUCTURES" name="constant_STRUCTURES" class="anchor"></a>
+            <article id="constant_STRUCTURES" class="constant">
+                <h3 class="">STRUCTURES</h3>
+                <pre class="signature">STRUCTURES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SUPPORTS" name="constant_SUPPORTS" class="anchor"></a>
+            <article id="constant_SUPPORTS" class="constant">
+                <h3 class="">SUPPORTS</h3>
+                <pre class="signature">SUPPORTS</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_THUMBNAIL" name="constant_THUMBNAIL" class="anchor"></a>
+            <article id="constant_THUMBNAIL" class="constant">
+                <h3 class="">THUMBNAIL</h3>
+                <pre class="signature">THUMBNAIL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_TILES" name="constant_TILES" class="anchor"></a>
+            <article id="constant_TILES" class="constant">
+                <h3 class="">TILES</h3>
+                <pre class="signature">TILES</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_TOTAL" name="constant_TOTAL" class="anchor"></a>
+            <article id="constant_TOTAL" class="constant">
+                <h3 class="">TOTAL</h3>
+                <pre class="signature">TOTAL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_TYPE" name="constant_TYPE" class="anchor"></a>
+            <article id="constant_TYPE" class="constant">
+                <h3 class="">TYPE</h3>
+                <pre class="signature">TYPE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_VALUE" name="constant_VALUE" class="anchor"></a>
+            <article id="constant_VALUE" class="constant">
+                <h3 class="">VALUE</h3>
+                <pre class="signature">VALUE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_VIEWINGDIRECTION" name="constant_VIEWINGDIRECTION" class="anchor"></a>
+            <article id="constant_VIEWINGDIRECTION" class="constant">
+                <h3 class="">VIEWINGDIRECTION</h3>
+                <pre class="signature">VIEWINGDIRECTION</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_VIEWINGHINT" name="constant_VIEWINGHINT" class="anchor"></a>
+            <article id="constant_VIEWINGHINT" class="constant">
+                <h3 class="">VIEWINGHINT</h3>
+                <pre class="signature">VIEWINGHINT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_WIDTH" name="constant_WIDTH" class="anchor"></a>
+            <article id="constant_WIDTH" class="constant">
+                <h3 class="">WIDTH</h3>
+                <pre class="signature">WIDTH</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_WITHIN" name="constant_WITHIN" class="anchor"></a>
+            <article id="constant_WITHIN" class="constant">
+                <h3 class="">WITHIN</h3>
+                <pre class="signature">WITHIN</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                        
+                                </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Identifier.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/PresentationAPI/Parameters/Identifier.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/IIIF.html">\IIIF</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on 
+
+September 22nd, 2016 at 15:26.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
