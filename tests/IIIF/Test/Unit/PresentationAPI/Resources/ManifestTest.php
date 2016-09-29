@@ -68,7 +68,7 @@ class ManifestTest extends TestCase
         $sequence = $this->createMock(Sequence::class);
         $sequence->method('getID')->willReturn('http://www.example.org');
         $sequence->method('getType')->willReturn('sc:Sequence');
-        $sequence->method('getLabel')->willReturn('My Sequence');
+        $sequence->method('getLabels')->willReturn(array('My Sequence'));
         $sequence->method('getDefaultContext')->willReturn('http://iiif.io/api/presentation/2/context.json');
 
         $this->manifest->validateSequence($sequence);
@@ -84,7 +84,7 @@ class ManifestTest extends TestCase
         $sequence = $this->createMock(Sequence::class);
         $sequence->method('getID')->willReturn('http://www.example.org');
         $sequence->method('getType')->willReturn('sc:Sequence');
-        $sequence->method('getLabel')->willReturn('My Sequence');
+        $sequence->method('getLabels')->willReturn(array('My Sequence'));
         $sequence->method('getDefaultContext')->willReturn('http://iiif.io/api/presentation/2/context.json');
         $sequence->method('getViewingDirection')->willReturn(ViewingDirection::LEFT_TO_RIGHT);
 
@@ -114,7 +114,7 @@ class ManifestTest extends TestCase
         $annotationList = $this->createMock(AnnotationList::class);
         $annotationList->method('getID')->willReturn('http://www.example.org');
         $annotationList->method('getType')->willReturn('sc:AnnotationList');
-        $annotationList->method('getLabel')->willReturn('My Annotation List');
+        $annotationList->method('getLabels')->willReturn(array('My Annotation List'));
         $annotationList->method('getDefaultContext')->willReturn('http://iiif.io/api/presentation/2/context.json');
 
         $this->manifest->validateAnnotationList($annotationList);
@@ -130,7 +130,7 @@ class ManifestTest extends TestCase
         $annotationList = $this->createMock(AnnotationList::class);
         $annotationList->method('getID')->willReturn('http://www.example.org');
         $annotationList->method('getType')->willReturn('sc:AnnotationList');
-        $annotationList->method('getLabel')->willReturn('My Annotation List');
+        $annotationList->method('getLabels')->willReturn(array('My Annotation List'));
         $annotationList->method('getDefaultContext')->willReturn('http://iiif.io/api/presentation/2/context.json');
         $annotationList->method('getNext')->willReturn('http://www.example.org/next');
 
@@ -149,7 +149,7 @@ class ManifestTest extends TestCase
         $description = "A longer description of this example book. It should give some real information.";
 
         $this->manifest->setID($id);
-        $this->manifest->setLabel($label);
+        $this->manifest->addLabel($label);
         $this->manifest->setViewingDirection($viewingDirection);
         $this->manifest->addDescription($description);
 
@@ -163,4 +163,3 @@ class ManifestTest extends TestCase
 
     }
 }
-

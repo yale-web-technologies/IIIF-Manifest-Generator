@@ -132,7 +132,7 @@ class Layer extends ResourceAbstract {
         if ($this->getOnlyMemberData()) {
           ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in the Canvas");
           ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in the Canvas");
-          ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Canvas");
+          ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Canvas");
 
           return $item;
         }
@@ -147,7 +147,7 @@ class Layer extends ResourceAbstract {
         ArrayCreator::addIfExists($item, Identifier::VIEWINGDIRECTION, $this->getViewingDirection());
 
         /** Descriptive Properties **/
-        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Layer");
+        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Layer");
         ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
         ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
         ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());

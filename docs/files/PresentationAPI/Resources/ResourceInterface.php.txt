@@ -74,14 +74,14 @@ interface ResourceInterface {
     public function getType();
 
     /**
-     * Set the label.
+     * Add a label.
      */
-    public function setLabel($label);
+    public function addLabel($label, $language);
 
     /**
-     * Get the label
+     * Get the labels.
      */
-    public function getLabel();
+    public function getLabels();
 
     /**
      * Add a viewing hint.

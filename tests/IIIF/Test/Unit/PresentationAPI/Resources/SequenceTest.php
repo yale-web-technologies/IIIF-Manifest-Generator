@@ -73,7 +73,7 @@ class SequenceTest extends TestCase
         $viewingHint = ViewingHint::PAGED;
 
         $this->sequence->setID($id);
-        $this->sequence->setLabel($label);
+        $this->sequence->addLabel($label);
         $this->sequence->addViewingHint($viewingHint);
         $this->sequence->addCanvas($this->createMock(Canvas::class));
 
@@ -85,4 +85,3 @@ class SequenceTest extends TestCase
         $this->assertEquals($viewingHint, $array[Identifier::VIEWINGHINT]);
     }
 }
-

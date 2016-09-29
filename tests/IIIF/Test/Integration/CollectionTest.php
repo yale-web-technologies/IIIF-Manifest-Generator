@@ -52,7 +52,7 @@ class CollectionTest extends TestCase
         $collection = new Collection(true);
 
         $collection->setID("http://example.org/iiif/collection/top");
-        $collection->setLabel("Top Level Collection for Example Organization");
+        $collection->addLabel("Top Level Collection for Example Organization");
         $collection->addViewingHint(ViewingHint::TOP);
         $collection->addDescription("Description of Collection");
         $collection->addAttribution("Provided by Example Organization");
@@ -60,38 +60,37 @@ class CollectionTest extends TestCase
         $collection1 = new Collection();
         $collection->addCollection($collection1);
         $collection1->setID("http://example.org/iiif/collection/sub1");
-        $collection1->setLabel("Sub-Collection 1");
+        $collection1->addLabel("Sub-Collection 1");
 
         $mem_collection1 = new Collection();
         $collection1->addMember($mem_collection1);
         $mem_collection1->setID("http://example.org/iiif/collection/part1");
-        $mem_collection1->setLabel("My Multi-volume Set");
+        $mem_collection1->addLabel("My Multi-volume Set");
         $mem_collection1->addViewingHint(ViewingHint::MULTI_PART);
 
         $mem_manifest1 = new Manifest();
         $collection1->addMember($mem_manifest1);
         $mem_manifest1->setID("http://example.org/iiif/book1/manifest1");
-        $mem_manifest1->setLabel("My Book");
+        $mem_manifest1->addLabel("My Book");
 
         $mem_collection2 = new Collection();
         $collection1->addMember($mem_collection2);
         $mem_collection2->setID("http://example.org/iiif/collection/part2");
-        $mem_collection2->setLabel("My Sub Collection");
+        $mem_collection2->addLabel("My Sub Collection");
         $mem_collection2->addViewingHint(ViewingHint::INDIVIDUALS);
 
         $collection2 = new Collection();
         $collection->addCollection($collection2);
         $collection2->setID("http://example.org/iiif/collection/part2");
-        $collection2->setLabel("Sub Collection 2");
+        $collection2->addLabel("Sub Collection 2");
 
         $manifest1 = new Manifest();
         $collection->addManifest($manifest1);
         $manifest1->setID("http://example.org/iiif/book1/manifest");
-        $manifest1->setLabel("Book 1");
+        $manifest1->addLabel("Book 1");
 
         $this->assertJsonStringEqualsJsonFile(dirname(__FILE__).'/files/collection.json',$this->generator->generate($collection));
     }
 
 
 }
-

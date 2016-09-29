@@ -52,7 +52,7 @@ class LayerTest extends TestCase
         $layer = new Layer(true);
 
         $layer->setID("http://example.org/iiif/book1/layer/transcription");
-        $layer->setLabel("Diplomatic Transcription");
+        $layer->addLabel("Diplomatic Transcription");
 
         $annotationlist1 = new AnnotationList();
         $annotationlist2 = new AnnotationList();
@@ -86,7 +86,7 @@ class LayerTest extends TestCase
         $layer = new Layer(true);
 
         $layer->setID("http://example.org/iiif/book1/layer/transcription");
-        $layer->setLabel("Example Long Transcription");
+        $layer->addLabel("Example Long Transcription");
         $layer->setTotal(496923);
         $layer->setFirst("http://example.org/iiif/book1/list/l1");
 
@@ -94,4 +94,3 @@ class LayerTest extends TestCase
     }
 
 }
-

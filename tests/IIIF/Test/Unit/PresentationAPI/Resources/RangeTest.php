@@ -100,7 +100,7 @@ class RangeTest extends TestCase
         $range = $this->createMock(Range::class);
         $range->method('getID')->willReturn('http://example.org/iiif/book1/range/r1');
         $range->method('getType')->willReturn('sc:Range');
-        $range->method('getLabel')->willReturn('Introduction');
+        $range->method('getLabels')->willReturn(array('Introduction'));
 
         $this->range->validateMember($range);
     }
@@ -126,7 +126,7 @@ class RangeTest extends TestCase
         $viewingHint = ViewingHint::TOP;
 
         $this->range->setID($id);
-        $this->range->setLabel($label);
+        $this->range->addLabel($label);
         $this->range->addViewingHint($viewingHint);
 
         $array = $this->range->toArray();
@@ -137,4 +137,3 @@ class RangeTest extends TestCase
         $this->assertEquals($viewingHint, $array[Identifier::VIEWINGHINT]);
     }
 }
-

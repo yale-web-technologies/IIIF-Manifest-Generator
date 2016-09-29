@@ -211,7 +211,7 @@ class CollectionTest extends TestCase
         $description = "Description of Collection";
 
         $this->collection->setID($id);
-        $this->collection->setLabel($label);
+        $this->collection->addLabel($label);
         $this->collection->addViewingHint($viewingHint);
         $this->collection->addDescription($description);
 
@@ -224,4 +224,3 @@ class CollectionTest extends TestCase
         $this->assertEquals($description, $array[Identifier::DESCRIPTION]);
     }
 }
-

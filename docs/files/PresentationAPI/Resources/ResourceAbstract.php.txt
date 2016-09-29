@@ -46,11 +46,11 @@ abstract class ResourceAbstract implements ResourceInterface {
 
 
     protected $defaultcontext = "http://iiif.io/api/presentation/2/context.json";
-    protected $label;
     protected $viewingdirection;
     protected $navdate;
 
     protected $contexts       = array();
+    protected $labels         = array();
     protected $viewinghints   = array();
     protected $descriptions   = array();
     protected $attributions   = array();
@@ -188,27 +188,27 @@ abstract class ResourceAbstract implements ResourceInterface {
 
     /**
      * {@inheritDoc}
-     * @see \IIIF\PresentationAPI\Resources\ResourceInterface::setLabel()
+     * @see \IIIF\PresentationAPI\Resources\ResourceInterface::addLabel()
      * @param string
      * @param string
      */
-    public function setLabel($label, $language = NULL)
+    public function addLabel($label, $language = NULL)
     {
       if (!empty($language)) {
         $label = array(Identifier::ATVALUE => $label, Identifier::LANGUAGE => $language);
       }
 
-      $this->label = $label;
+      array_push($this->labels, $label);
     }
 
     /**
      * {@inheritDoc}
-     * @see \IIIF\PresentationAPI\Resources\ResourceInterface::getLabel()
-     * @return string
+     * @see \IIIF\PresentationAPI\Resources\ResourceInterface::getLabelss()
+     * @return array
      */
-    public function getLabel()
+    public function getLabels()
     {
-        return $this->label;
+        return $this->labels;
     }
 
     /**
