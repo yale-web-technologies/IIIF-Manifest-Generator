@@ -131,13 +131,13 @@ class ResourceAbstractTest extends TestCase
         $label = "Book 1";
         $language = "en";
 
-        $this->resource->setLabel($label);
+        $this->resource->addLabel($label);
 
-        $this->assertEquals($label, $this->resource->getLabel());
+        $this->assertEquals($label, $this->resource->getLabels()[0]);
 
-        $this->resource->setLabel($label, $language);
+        $this->resource->addLabel($label, $language);
 
-        $this->assertEquals(array(Identifier::ATVALUE => $label, Identifier::LANGUAGE => $language), $this->resource->getLabel());
+        $this->assertEquals(array(Identifier::ATVALUE => $label, Identifier::LANGUAGE => $language), $this->resource->getLabels()[1]);
     }
 
     /**

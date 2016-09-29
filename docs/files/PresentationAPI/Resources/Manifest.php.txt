@@ -94,12 +94,12 @@ class Manifest extends ResourceAbstract {
         $exclusions = array(
             'getID',
             'getType',
-            'getLabel',
+            'getLabels',
             'getDefaultContext'
         );
         $message = "A Sequence after the first one embedded within a Manifest should only contain an id, type and label";
         Validator::shouldNotContainItems($sequence, $classname, $exclusions, $message);
-        Validator::shouldContainItems($sequence, array('getLabel'), 'Multiple Sequences within a Manifest must contain a label');
+        Validator::shouldContainItems($sequence, array('getLabels'), 'Multiple Sequences within a Manifest must contain a label');
     }
 
     /**
@@ -113,7 +113,7 @@ class Manifest extends ResourceAbstract {
         $exclusions = array(
             'getID',
             'getType',
-            'getLabel',
+            'getLabels',
             'getDefaultContext',
             'getWithin'
         );
@@ -133,7 +133,7 @@ class Manifest extends ResourceAbstract {
          if ($this->getOnlyMemberData()) {
             ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in a Manifest");
             ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in a Manifest");
-            ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in a Manifest");
+            ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in a Manifest");
 
             return $item;
         }
@@ -149,7 +149,7 @@ class Manifest extends ResourceAbstract {
         ArrayCreator::addIfExists($item, Identifier::NAVDATE, $this->getNavDate());
 
         /** Descriptive Properties **/
-        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Manifest");
+        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Manifest");
         ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
         ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
         ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());

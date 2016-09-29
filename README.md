@@ -14,7 +14,7 @@ Resources are mapped to class types.  Methods are available to add objects embed
   $manifest = new Manifest(true);
 
   $manifest->setID("http://example.org/iiif/book1/manifest");
-  $manifest->setLabel("Book 1");
+  $manifest->addLabel("Book 1");
   
   $service_thumbnail = new Service();
   $thumbnail->setService($service_thumbnail);
@@ -25,12 +25,12 @@ Resources are mapped to class types.  Methods are available to add objects embed
   $sequence = new Sequence();
   $manifest->addSequence($sequence);
   $sequence->setID("http://example.org/iiif/book1/sequence/normal");
-  $sequence->setLabel("Current Page Order");
+  $sequence->addLabel("Current Page Order");
 
   $canvas = new Canvas();
   $sequence->addCanvas($canvas);
   $canvas->setID("http://example.org/iiif/book1/canvas/p1");
-  $canvas->setLabel("p. 1");
+  $canvas->addLabel("p. 1");
   $canvas->setWidth(500);
   $canvas->setHeight(500);
 ```

@@ -51,7 +51,7 @@ class CanvasTest extends TestCase
     {
         $canvas = new Canvas(true);
         $canvas->setID("http://example.org/iiif/book1/canvas/p1");
-        $canvas->setLabel("p. 1");
+        $canvas->addLabel("p. 1");
         $canvas->setHeight(1000);
         $canvas->setWidth(750);
 
@@ -69,4 +69,3 @@ class CanvasTest extends TestCase
 
 
 }
-

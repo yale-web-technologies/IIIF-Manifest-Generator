@@ -53,7 +53,7 @@ class SequenceTest extends TestCase
         $sequence = new Sequence(true);
 
         $sequence->setID("http://example.org/iiif/book1/sequence/normal");
-        $sequence->setLabel("Current Page Order");
+        $sequence->addLabel("Current Page Order");
         $sequence->setViewingDirection(ViewingDirection::LEFT_TO_RIGHT);
         $sequence->addViewingHint(ViewingHint::PAGED);
         $sequence->setStartCanvas("http://example.org/iiif/book1/canvas/p2");
@@ -61,21 +61,21 @@ class SequenceTest extends TestCase
         $canvas1 = new Canvas();
         $sequence->addCanvas($canvas1);
         $canvas1->setID("http://example.org/iiif/book1/canvas/p1");
-        $canvas1->setLabel("p. 1");
+        $canvas1->addLabel("p. 1");
         $canvas1->setHeight(1000);
         $canvas1->setWidth(500);
 
         $canvas2 = new Canvas();
         $sequence->addCanvas($canvas2);
         $canvas2->setID("http://example.org/iiif/book1/canvas/p2");
-        $canvas2->setLabel("p. 2");
+        $canvas2->addLabel("p. 2");
         $canvas2->setHeight(1000);
         $canvas2->setWidth(500);
 
         $canvas3 = new Canvas();
         $sequence->addCanvas($canvas3);
         $canvas3->setID("http://example.org/iiif/book1/canvas/p3");
-        $canvas3->setLabel("p. 3");
+        $canvas3->addLabel("p. 3");
         $canvas3->setHeight(1000);
         $canvas3->setWidth(500);
 
@@ -83,4 +83,3 @@ class SequenceTest extends TestCase
     }
 
 }
-

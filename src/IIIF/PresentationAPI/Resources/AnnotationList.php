@@ -144,7 +144,7 @@ class AnnotationList extends ResourceAbstract {
         ArrayCreator::addIfExists($item, Identifier::VIEWINGHINT, $this->getViewingHints());
 
         /** Descriptive Properties **/
-        ArrayCreator::addIfExists($item, Identifier::LABEL, $this->getLabel());
+        ArrayCreator::addIfExists($item, Identifier::LABEL, $this->getLabels());
         ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
         ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
         ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());

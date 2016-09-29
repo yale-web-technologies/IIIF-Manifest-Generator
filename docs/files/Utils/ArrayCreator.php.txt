@@ -78,7 +78,7 @@ class ArrayCreator {
      * Check the array to see if subclasses need to have arrays generated.
      * @param array $value
      */
-    private function checkToArray(&$value)
+    private static function checkToArray(&$value)
     {
         if (is_array($value)) {
           foreach($value as &$class) {

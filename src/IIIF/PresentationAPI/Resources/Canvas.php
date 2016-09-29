@@ -176,7 +176,7 @@ class Canvas extends ResourceAbstract {
       if ($this->getOnlyMemberData()) {
           ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in the Canvas");
           ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in the Canvas");
-          ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Canvas");
+          ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Canvas");
 
           return $item;
       }
@@ -193,7 +193,7 @@ class Canvas extends ResourceAbstract {
       ArrayCreator::addRequired($item, Identifier::WIDTH, $this->getWidth(), "The width must be present in the Canvas");
 
       /** Descriptive Properties **/
-      ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Canvas");
+      ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Canvas");
       ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
       ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
       ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());

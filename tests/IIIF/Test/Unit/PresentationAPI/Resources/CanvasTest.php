@@ -95,7 +95,7 @@ class CanvasTest extends TestCase
         $width = 750;
 
         $this->canvas->setID($id);
-        $this->canvas->setLabel($label);
+        $this->canvas->addLabel($label);
         $this->canvas->setHeight($height);
         $this->canvas->setWidth($width);
 
@@ -109,4 +109,3 @@ class CanvasTest extends TestCase
 
     }
 }
-

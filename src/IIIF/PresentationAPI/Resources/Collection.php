@@ -257,7 +257,7 @@ class Collection extends ResourceAbstract {
         $exclusions = array(
             'getID',
             'getType',
-            'getLabel',
+            'getLabels',
             'getDefaultContext',
             'getOnlyMemberData'
         );
@@ -287,7 +287,7 @@ class Collection extends ResourceAbstract {
         if ($this->getOnlyMemberData()) {
             ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in a Collection");
             ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in a Collection");
-            ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in a Collection");
+            ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in a Collection");
             ArrayCreator::addIfExists($item, Identifier::VIEWINGHINT, $this->getViewingHints());
 
             return $item;
@@ -304,7 +304,7 @@ class Collection extends ResourceAbstract {
         ArrayCreator::addIfExists($item, Identifier::NAVDATE, $this->getNavDate());
 
         /** Descriptive Properties **/
-        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Collection");
+        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Collection");
         ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
         ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
         ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());

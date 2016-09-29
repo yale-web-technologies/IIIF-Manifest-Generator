@@ -173,7 +173,7 @@ class Range extends ResourceAbstract {
         $methods = array(
             'getID',
             'getType',
-            'getLabel'
+            'getLabels'
         );
         Validator::shouldContainItems($member, $methods, 'A member within a Range must contain the ID, Type and Label');
     }
@@ -191,7 +191,7 @@ class Range extends ResourceAbstract {
         if ($this->getOnlyMemberData()) {
           ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in the Canvas");
           ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in the Canvas");
-          ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Canvas");
+          ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Canvas");
           ArrayCreator::addIfExists($item, Identifier::CONTENTLAYER, $this->getContentLayer());
 
           return $item;
@@ -208,7 +208,7 @@ class Range extends ResourceAbstract {
 
 
         /** Descriptive Properties **/
-        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabel(), "The label must be present in the Range");
+        ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in the Range");
         ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
         ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
         ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());

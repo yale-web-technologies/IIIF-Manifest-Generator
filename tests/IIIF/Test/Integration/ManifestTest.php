@@ -68,7 +68,7 @@ class ManifestTest extends TestCase
         $manifest = new Manifest(true);
 
         $manifest->setID("http://example.org/iiif/book1/manifest");
-        $manifest->setLabel("Book 1");
+        $manifest->addLabel("Book 1");
 
         $metadata = new Metadata();
         $manifest->setMetadata($metadata);
@@ -136,12 +136,12 @@ class ManifestTest extends TestCase
         $sequence = new Sequence();
         $manifest->addSequence($sequence);
         $sequence->setID("http://example.org/iiif/book1/sequence/normal");
-        $sequence->setLabel("Current Page Order");
+        $sequence->addLabel("Current Page Order");
 
         $canvas = new Canvas();
         $sequence->addCanvas($canvas);
         $canvas->setID("http://example.org/iiif/book1/canvas/p1");
-        $canvas->setLabel("p. 1");
+        $canvas->addLabel("p. 1");
         $canvas->setWidth(500);
         $canvas->setHeight(500);
 
@@ -157,49 +157,49 @@ class ManifestTest extends TestCase
         $manifest = new Manifest(true);
 
         $manifest->setID("http://example.org/iiif/book1/manifest");
-        $manifest->setLabel("Book 1");
+        $manifest->addLabel("Book 1");
 
         $sequence = new Sequence();
         $manifest->addSequence($sequence);
         $sequence->setID("http://example.org/iiif/book1/sequence/normal");
-        $sequence->setLabel("Current Page Order");
+        $sequence->addLabel("Current Page Order");
 
         $canvas = new Canvas();
         $sequence->addCanvas($canvas);
         $canvas->setID("http://example.org/iiif/book1/canvas/p1");
-        $canvas->setLabel("p. 1");
+        $canvas->addLabel("p. 1");
         $canvas->setWidth(500);
         $canvas->setHeight(500);
 
         $range1 = new Range();
         $manifest->addStructure($range1);
         $range1->setID("http://example.org/iiif/book1/range/r0");
-        $range1->setLabel("Table of Contents");
+        $range1->addLabel("Table of Contents");
         $range1->addViewingHint(ViewingHint::TOP);
 
         $range1_member1 = new Canvas();
         $range1->addMember($range1_member1);
         $range1_member1->returnOnlyMemberData();
         $range1_member1->setID("http://example.org/iiif/book1/canvas/cover");
-        $range1_member1->setLabel("Front Cover");
+        $range1_member1->addLabel("Front Cover");
 
         $range1_member2 = new Range();
         $range1->addMember($range1_member2);
         $range1_member2->returnOnlyMemberData();
         $range1_member2->setID("http://example.org/iiif/book1/range/r1");
-        $range1_member2->setLabel("Introduction");
+        $range1_member2->addLabel("Introduction");
         $range1_member2->setContentLayer("http://example.org/iiif/book1/layer/introTexts");
 
         $range1_member3 = new Canvas();
         $range1->addMember($range1_member3);
         $range1_member3->returnOnlyMemberData();
         $range1_member3->setID("http://example.org/iiif/book1/canvas/backCover");
-        $range1_member3->setLabel("Back Cover");
+        $range1_member3->addLabel("Back Cover");
 
         $range2 = new Range();
         $manifest->addStructure($range2);
         $range2->setID("http://example.org/iiif/book1/range/r1");
-        $range2->setLabel("Introduction");
+        $range2->addLabel("Introduction");
 
         $range2_range1 = new Range();
         $range2->addRange($range2_range1);
@@ -224,7 +224,7 @@ class ManifestTest extends TestCase
         $range3 = new Range();
         $manifest->addStructure($range3);
         $range3->setID("http://example.org/iiif/book1/range/r1-1");
-        $range3->setLabel("Objectives and Scope");
+        $range3->addLabel("Objectives and Scope");
 
         $range3_canvas1 = new Canvas();
         $range3->addCanvas($range3_canvas1);
@@ -244,7 +244,7 @@ class ManifestTest extends TestCase
         $manifest = new Manifest(true);
 
         $manifest->setID("http://example.org/iiif/book1/manifest");
-        $manifest->setLabel("Book 1");
+        $manifest->addLabel("Book 1");
 
         $metadata = new Metadata();
         $manifest->setMetadata($metadata);
@@ -282,14 +282,14 @@ class ManifestTest extends TestCase
         $sequence = new Sequence();
         $manifest->addSequence($sequence);
         $sequence->setID("http://example.org/iiif/book1/sequence/normal");
-        $sequence->setLabel("Current Page Order");
+        $sequence->addLabel("Current Page Order");
         $sequence->setViewingDirection(ViewingDirection::LEFT_TO_RIGHT);
         $sequence->addViewingHint(ViewingHint::PAGED);
 
         $sequence_canvas1 = new Canvas();
         $sequence->addCanvas($sequence_canvas1);
         $sequence_canvas1->setID("http://example.org/iiif/book1/canvas/p1");
-        $sequence_canvas1->setLabel("p. 1");
+        $sequence_canvas1->addLabel("p. 1");
         $sequence_canvas1->setHeight(1000);
         $sequence_canvas1->setWidth(750);
 
@@ -319,12 +319,12 @@ class ManifestTest extends TestCase
         $sequence_canvas1_annotatonlist->addWithin($sequence_canvas1_annotatonlist_within);
         $sequence_canvas1_annotatonlist_within->returnOnlyMemberData();
         $sequence_canvas1_annotatonlist_within->setID("http://example.org/iiif/book1/layer/l1");
-        $sequence_canvas1_annotatonlist_within->setLabel("Example Layer");
+        $sequence_canvas1_annotatonlist_within->addLabel("Example Layer");
 
         $sequence_canvas2 = new Canvas();
         $sequence->addCanvas($sequence_canvas2);
         $sequence_canvas2->setID("http://example.org/iiif/book1/canvas/p2");
-        $sequence_canvas2->setLabel("p. 2");
+        $sequence_canvas2->addLabel("p. 2");
         $sequence_canvas2->setHeight(1000);
         $sequence_canvas2->setWidth(750);
 
@@ -355,7 +355,7 @@ class ManifestTest extends TestCase
         $sequence_canvas3 = new Canvas();
         $sequence->addCanvas($sequence_canvas3);
         $sequence_canvas3->setID("http://example.org/iiif/book1/canvas/p3");
-        $sequence_canvas3->setLabel("p. 3");
+        $sequence_canvas3->addLabel("p. 3");
         $sequence_canvas3->setHeight(1000);
         $sequence_canvas3->setWidth(750);
 
@@ -386,7 +386,7 @@ class ManifestTest extends TestCase
         $structure = new Range();
         $manifest->addStructure($structure);
         $structure->setID("http://example.org/iiif/book1/range/r1");
-        $structure->setLabel("Introduction");
+        $structure->addLabel("Introduction");
 
         $structure_canvas1 = new Canvas();
         $structure->addCanvas($structure_canvas1);

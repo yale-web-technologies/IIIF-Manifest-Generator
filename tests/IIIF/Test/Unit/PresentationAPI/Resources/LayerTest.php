@@ -111,7 +111,7 @@ class LayerTest extends TestCase
         $total = 100;
 
         $this->layer->setID($id);
-        $this->layer->setLabel($label);
+        $this->layer->addLabel($label);
         $this->layer->setViewingDirection($viewingDirection);
         $this->layer->setTotal($total);
 
@@ -123,4 +123,3 @@ class LayerTest extends TestCase
         $this->assertEquals($total, $array[Identifier::TOTAL]);
     }
 }
-
