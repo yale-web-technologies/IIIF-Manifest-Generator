@@ -115,12 +115,33 @@ class Content extends ResourceAbstract {
     public function toArray()
     {
         $item = array();
+
+        /** Technical Properties **/
         ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in a Content resource");
         ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in a Content resource");
         ArrayCreator::addRequired($item, Identifier::FORMAT, $this->getFormat(), "The format must be present in a Content resource");
-        ArrayCreator::addIfExists($item, Identifier::SERVICE, $this->getServices());
-        ArrayCreator::addIfExists($item, Identifier::WIDTH, $this->getWidth());
         ArrayCreator::addIfExists($item, Identifier::HEIGHT, $this->getHeight());
+        ArrayCreator::addIfExists($item, Identifier::WIDTH, $this->getWidth());
+        ArrayCreator::addIfExists($item, Identifier::VIEWINGHINT, $this->getViewingHints());
+
+        /** Descriptive Properties **/
+        ArrayCreator::addIfExists($item, Identifier::LABEL, $this->getLabel());
+        ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
+        ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
+        ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());
+
+        /** Rights and Licensing Properties **/
+        ArrayCreator::addIfExists($item, Identifier::ATTRIBUTION, $this->getAttributions());
+        ArrayCreator::addIfExists($item, Identifier::LICENSE, $this->getLicenses());
+        ArrayCreator::addIfExists($item, Identifier::LOGO, $this->getLogos());
+
+        /** Linking Properties **/
+        ArrayCreator::addIfExists($item, Identifier::RELATED, $this->getRelated());
+        ArrayCreator::addIfExists($item, Identifier::RENDERING, $this->getRendering());
+        ArrayCreator::addIfExists($item, Identifier::SERVICE, $this->getServices());
+        ArrayCreator::addIfExists($item, Identifier::SEEALSO, $this->getSeeAlso());
+        ArrayCreator::addIfExists($item, Identifier::WITHIN, $this->getWithin());
+
 
         return $item;
     }
