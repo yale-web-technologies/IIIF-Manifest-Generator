@@ -134,7 +134,7 @@ class Canvas extends ResourceAbstract {
         if (empty($this->getWidth())) {
             $largestWidth = NULL;
             foreach ($this->getImages() as $image)  {
-                $newWidth = $image->getWidth();
+                $newWidth = $image->getContent()->getWidth();
                 if (empty($largestWidth) || $newWidth > $largestWidth) {
                   $largestWidth = $newWidth;
                 }
@@ -145,7 +145,7 @@ class Canvas extends ResourceAbstract {
         if (empty($this->getHeight())) {
             $largestHeight = NULL;
             foreach ($this->getImages() as $image)  {
-                $newHeight = $image->getHeight();
+                $newHeight = $image->getContent()->getHeight();
                 if (empty($largestHeight) || $newHeight > $largestHeight) {
                   $largestHeight = $newHeight;
                 }
