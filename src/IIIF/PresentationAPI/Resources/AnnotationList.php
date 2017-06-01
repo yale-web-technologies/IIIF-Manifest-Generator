@@ -35,6 +35,10 @@ use IIIF\Utils\Validator;
  */
 class AnnotationList extends ResourceAbstract {
 
+    private $next;
+    private $prev;
+    private $startIndex;
+
     private $annotations = array();
 
     public $type = "sc:AnnotationList";

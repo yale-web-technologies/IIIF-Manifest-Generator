@@ -161,7 +161,7 @@ class ResourceAbstractTest extends TestCase
 
         $viewingHint = "Bad Value";
 
-        $this->resource->addViewingHint($viewinghint);
+        $this->resource->addViewingHint($viewingHint);
     }
 
     /**
