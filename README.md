@@ -3,7 +3,7 @@
 This is a IIIF Manifest Generator written in PHP.  It implements the [IIIF API Specification](http://iiif.io/api). Currently this only supports the [Presentation API](http://iiif.io/api/presentation/2.1/).
 
 ### Installation ###
-Currently a manual inclusion. Composer coming soon.
+composer require yale-web-technologies/iiif-manifest-generator
 
 ### Usage ###
 Resources are mapped to class types.  Methods are available to add objects embedded within a resource. Passing true to the constructor of a resource will make it a top level resource within the JSON. 
