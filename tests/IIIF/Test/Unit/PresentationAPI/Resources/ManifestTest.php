@@ -51,6 +51,21 @@ class ManifestTest extends TestCase
     }
 
     /**
+     * Test that the sequence after the first has the returnOnlyMemberData function called
+     */
+    public function testSequenceReturnOnlyMemberData()
+    {
+        $sequence1 = $this->createMock(Sequence::class);
+        $sequence2 = $this->createMock(Sequence::class);
+
+        $sequence1->expects($this->never())->method('returnOnlyMemberData');
+        $sequence2->expects($this->once())->method('returnOnlyMemberData');
+
+        $this->manifest->addSequence($sequence1);
+        $this->manifest->addSequence($sequence2);
+    }
+
+    /**
      * Test the structures
      */
     public function testStructure()
