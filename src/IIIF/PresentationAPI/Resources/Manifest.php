@@ -50,6 +50,9 @@ class Manifest extends ResourceAbstract {
      */
     public function addSequence(Sequence $sequence)
     {
+        if (count($this->sequences) >= 1) {
+            $sequence->returnOnlyMemberData();
+        }
         array_push($this->sequences, $sequence);
     }
 
@@ -95,7 +98,8 @@ class Manifest extends ResourceAbstract {
             'getID',
             'getType',
             'getLabels',
-            'getDefaultContext'
+            'getDefaultContext',
+            'getOnlyMemberData'
         );
         $message = "A Sequence after the first one embedded within a Manifest should only contain an id, type and label";
         Validator::shouldNotContainItems($sequence, $classname, $exclusions, $message);

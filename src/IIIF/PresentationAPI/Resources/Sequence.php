@@ -82,9 +82,19 @@ class Sequence extends ResourceAbstract {
         $item = array();
 
         /** Technical Properties **/
+
+         if ($this->getOnlyMemberData()) {
+            ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in a Manifest");
+            ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in a Manifest");
+            ArrayCreator::addRequired($item, Identifier::LABEL, $this->getLabels(), "The label must be present in a Manifest");
+
+            return $item;
+        }
+
         if ($this->isTopLevel()) {
           ArrayCreator::addRequired($item, Identifier::CONTEXT, $this->getContexts(), "The context must be present in the Manifest");
         }
+
         ArrayCreator::addIfExists($item, Identifier::ID, $this->getID(), "The id must be present in the Manifest");
         ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in the Manifest");
         ArrayCreator::addIfExists($item, Identifier::VIEWINGHINT, $this->getViewingHints());
