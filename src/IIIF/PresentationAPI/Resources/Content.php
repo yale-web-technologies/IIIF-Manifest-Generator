@@ -109,16 +109,6 @@ class Content extends ResourceAbstract {
     }
 
     /**
-     * Get the chars.
-     *
-     * @return string
-     */
-    public function getChars()
-    {
-        return $this->chars;
-    }
-
-    /**
      * Set the chars.
      *
      * @param string $chars
@@ -126,6 +116,16 @@ class Content extends ResourceAbstract {
     public function setChars($chars)
     {
         $this->chars = $chars;
+    }
+
+    /**
+     * Get the chars.
+     *
+     * @return string
+     */
+    public function getChars()
+    {
+        return $this->chars;
     }
 
     /**
