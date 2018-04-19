@@ -84,6 +84,18 @@ class ContentTest extends TestCase
         $this->assertEquals($height, $this->content->getHeight());
     }
 
+    /**
+     * Test the chars property
+     */
+    public function testChars()
+    {
+        $chars = 'abcdefghijklmnopqrstuvwxyzšđčćž0123456789';
+
+        $this->content->setChars($chars);
+
+        $this->assertEquals($chars, $this->content->getChars());
+    }
+
 
     /**
      * Test the toArray method
@@ -95,6 +107,7 @@ class ContentTest extends TestCase
         $format = "image/jpeg";
         $width = 1500;
         $height = 2000;
+        $chars = 'abcdefghijklmnopqrstuvwxyzšđčćž0123456789';
 
 
         $this->content->setID($id);
@@ -102,6 +115,7 @@ class ContentTest extends TestCase
         $this->content->setFormat($format);
         $this->content->setWidth($width);
         $this->content->setHeight($height);
+        $this->content->setChars($chars);
 
         $array = $this->content->toArray();
 
@@ -110,6 +124,6 @@ class ContentTest extends TestCase
         $this->assertEquals($format, $array[Identifier::FORMAT]);
         $this->assertEquals($width, $array[Identifier::WIDTH]);
         $this->assertEquals($height, $array[Identifier::HEIGHT]);
+        $this->assertEquals($chars, $array[Identifier::CHARS]);
     }
 }
-

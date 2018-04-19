@@ -36,6 +36,7 @@ class Content extends ResourceAbstract {
     private $format;
     private $width;
     private $height;
+    private $chars;
 
     /**
      * Set the type.
@@ -108,6 +109,26 @@ class Content extends ResourceAbstract {
     }
 
     /**
+     * Set the chars.
+     *
+     * @param string $chars
+     */
+    public function setChars($chars)
+    {
+        $this->chars = $chars;
+    }
+
+    /**
+     * Get the chars.
+     *
+     * @return string
+     */
+    public function getChars()
+    {
+        return $this->chars;
+    }
+
+    /**
      * {@inheritDoc}
      * @see \IIIF\PresentationAPI\Resources\ResourceAbstract::toArray()
      * @return array
@@ -129,6 +150,7 @@ class Content extends ResourceAbstract {
         ArrayCreator::addIfExists($item, Identifier::METADATA, $this->getMetadata());
         ArrayCreator::addIfExists($item, Identifier::DESCRIPTION, $this->getDescriptions());
         ArrayCreator::addIfExists($item, Identifier::THUMBNAIL, $this->getThumbnails());
+        ArrayCreator::addIfExists($item, Identifier::CHARS, $this->getChars());
 
         /** Rights and Licensing Properties **/
         ArrayCreator::addIfExists($item, Identifier::ATTRIBUTION, $this->getAttributions());

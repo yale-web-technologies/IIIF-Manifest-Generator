@@ -41,6 +41,7 @@ class Identifier {
     const ID				        = "@id";
     const IMAGES            = "images";
   	const LABEL			        = "label";
+  	const CHARS			    = "chars";
   	const LANG              = "@lang";
   	const LANGUAGE          = "@language";
   	const LICENSE           = "license";
