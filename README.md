@@ -16,6 +16,9 @@ Resources are mapped to class types.  Methods are available to add objects embed
   $manifest->setID("http://example.org/iiif/book1/manifest");
   $manifest->addLabel("Book 1");
   
+  $thumbnail = new Thumbnail();
+  $thumbnail->setID("http://example.org/images/book1-page1/full/80,100/0/default.jpg");
+  
   $service_thumbnail = new Service();
   $thumbnail->setService($service_thumbnail);
   $service_thumbnail->setContext("http://iiif.io/api/image/2/context.json");
