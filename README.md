@@ -17,6 +17,7 @@ Resources are mapped to class types.  Methods are available to add objects embed
   $manifest->addLabel("Book 1");
   
   $thumbnail = new Thumbnail();
+  $manifest->addThumbnail($thumbnail);
   $thumbnail->setID("http://example.org/images/book1-page1/full/80,100/0/default.jpg");
   
   $service_thumbnail = new Service();
