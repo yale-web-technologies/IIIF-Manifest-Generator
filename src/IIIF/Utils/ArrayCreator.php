@@ -87,7 +87,7 @@ class ArrayCreator {
             }
           }
         }
-        else {
+        elseif (is_string($value)) {
          if (method_exists($value, "toArray")) {
            $value = $value->toArray();
          }
