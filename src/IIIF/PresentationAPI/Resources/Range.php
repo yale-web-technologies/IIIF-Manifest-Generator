@@ -199,7 +199,7 @@ class Range extends ResourceAbstract {
 
         /** Technical Properties **/
         if ($this->isTopLevel()) {
-            ArrayCreator::addRequired($item, Identifier::CONTEXT, $this->getContext(), "The context must be present in the Range");
+            ArrayCreator::addRequired($item, Identifier::CONTEXT, $this->getContexts(), "The context must be present in the Range");
         }
         ArrayCreator::addRequired($item, Identifier::ID, $this->getID(), "The id must be present in the Range");
         ArrayCreator::addRequired($item, Identifier::TYPE, $this->getType(), "The type must be present in the Range");

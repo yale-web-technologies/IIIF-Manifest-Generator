@@ -68,7 +68,7 @@ class Canvas extends ResourceAbstract {
     /**
      * Set the height.
      *
-     * @param string $height
+     * @param int $height
      */
     public function setHeight($height)
     {

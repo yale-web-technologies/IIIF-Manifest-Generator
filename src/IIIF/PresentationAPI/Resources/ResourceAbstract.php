@@ -44,7 +44,7 @@ abstract class ResourceAbstract implements ResourceInterface {
     private $istoplevel     = false;
     private $onlymemberdata = false;
 
-
+    protected $type;
     protected $defaultcontext = "http://iiif.io/api/presentation/2/context.json";
     protected $viewingdirection;
     protected $navdate;

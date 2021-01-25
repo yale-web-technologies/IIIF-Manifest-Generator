@@ -22,11 +22,13 @@
 
 namespace IIIF;
 
+use IIIF\PresentationAPI\Resources\ResourceInterface;
+
 class Generator {
 
     /**
      * Generate the manifest file
-     * @param Class $item
+     * @param LinkInterface|MetadataInterface|PropertyInterface|ResourceInterface $item
      * @param string $location
      */
     public function generate($item)
