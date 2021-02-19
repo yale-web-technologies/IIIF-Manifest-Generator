@@ -78,7 +78,7 @@ class Canvas extends ResourceAbstract {
     /**
      * Get the height.
      *
-     * @return string
+     * @return int
      */
     public function getHeight()
     {
