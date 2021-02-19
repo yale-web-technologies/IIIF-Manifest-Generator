@@ -22,6 +22,9 @@
 
 namespace IIIF;
 
+use IIIF\PresentationAPI\Links\LinkInterface;
+use IIIF\PresentationAPI\Metadata\MetadataInterface;
+use IIIF\PresentationAPI\Properties\PropertyInterface;
 use IIIF\PresentationAPI\Resources\ResourceInterface;
 
 class Generator {
