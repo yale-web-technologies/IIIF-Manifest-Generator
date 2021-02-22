@@ -11,7 +11,6 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
-    
     <!--[if lt IE 9]>
     <script src="../js/html5.js"></script>
     <![endif]-->
@@ -20,11 +19,10 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
-    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-        <script type="text/javascript">
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->    <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -69,7 +67,6 @@
             loadExternalCodeSnippets();
         })
     </script>
-
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
@@ -86,16 +83,12 @@
             <a class="brand" href="../index.html">API Documentation</a>
 
             <div class="nav-collapse">
-                <ul class="nav pull-right">
-                                        <li class="dropdown">
+                <ul class="nav pull-right">                    <li class="dropdown">
                         <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
                             API Documentation <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu">
-                                                        <li><a href="../namespaces/IIIF.html">\IIIF</a></li>
-                                                    </ul>
-                    </li>
-                                        <li class="dropdown" id="charts-menu">
+                        <ul class="dropdown-menu">                            <li><a href="../namespaces/IIIF.html">\IIIF</a></li>                        </ul>
+                    </li>                    <li class="dropdown" id="charts-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Charts <b class="caret"></b>
                         </a>
@@ -113,18 +106,15 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">176</span>
+                                <a href="../reports/errors.html">                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">188</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                <a href="../reports/markers.html">                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../reports/deprecated.html">
-                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                <a href="../reports/deprecated.html">                                    <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                         </ul>
@@ -138,238 +128,124 @@
     <!--</div>-->
 </div>
 
-<div id="___" class="container-fluid">
-        <section class="row-fluid">
-        <div class="span2 sidebar">
-                                <div class="accordion" style="margin-bottom: 0">
+<div id="___" class="container-fluid">    <section class="row-fluid">
+        <div class="span2 sidebar">    <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-204118060"></a>
-                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            <div class="accordion-heading">                    <a class="accordion-toggle" data-toggle="collapse" data-target="#namespace-1195158348"></a>                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-204118060" class="accordion-body collapse in">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
+            <div id="namespace-1195158348" class="accordion-body collapsein">
+                <div class="accordion-inner">    <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-892232166"></a>
-                                <a href="../namespaces/IIIF.html" style="margin-left: 30px; padding-left: 0">IIIF</a>
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-353115924"></a>                <a href="../namespaces/IIIF.html" style="margin-left: 30px; padding-left: 0">IIIF</a>
             </div>
-            <div id="namespace-892232166" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
+            <div id="namespace-353115924" class="accordion-body collapse">
+                <div class="accordion-inner">    <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1529755241"></a>
-                                <a href="../namespaces/IIIF.PresentationAPI.html" style="margin-left: 30px; padding-left: 0">PresentationAPI</a>
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-1280139954"></a>                <a href="../namespaces/IIIF.PresentationAPI.html" style="margin-left: 30px; padding-left: 0">PresentationAPI</a>
             </div>
-            <div id="namespace-1529755241" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
+            <div id="namespace-1280139954" class="accordion-body collapse">
+                <div class="accordion-inner">    <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1432558161"></a>
-                                <a href="../namespaces/IIIF.PresentationAPI.Links.html" style="margin-left: 30px; padding-left: 0">Links</a>
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-655545182"></a>                <a href="../namespaces/IIIF.PresentationAPI.Links.html" style="margin-left: 30px; padding-left: 0">Links</a>
             </div>
-            <div id="namespace-1432558161" class="accordion-body collapse ">
+            <div id="namespace-655545182" class="accordion-body collapse">
                 <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Links.LinkInterface.html">LinkInterface</a></li>
-                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html">LinkAbstract</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Related.html">Related</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Rendering.html">Rendering</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.SeeAlso.html">SeeAlso</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Service.html">Service</a></li>
-                                            </ul>
+                    <ul>                            <li class="interface"><a href="../classes/IIIF.PresentationAPI.Links.LinkInterface.html">LinkInterface</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.LinkAbstract.html">LinkAbstract</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Related.html">Related</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Rendering.html">Rendering</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.SeeAlso.html">SeeAlso</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Links.Service.html">Service</a></li>                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-1887789895"></a>                <a href="../namespaces/IIIF.PresentationAPI.Metadata.html" style="margin-left: 30px; padding-left: 0">Metadata</a>
+            </div>
+            <div id="namespace-1887789895" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <ul>                            <li class="interface"><a href="../classes/IIIF.PresentationAPI.Metadata.MetadataInterface.html">MetadataInterface</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Metadata.Metadata.html">Metadata</a></li>                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-95244625"></a>                <a href="../namespaces/IIIF.PresentationAPI.Parameters.html" style="margin-left: 30px; padding-left: 0">Parameters</a>
+            </div>
+            <div id="namespace-95244625" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <ul>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.DCType.html">DCType</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html">Identifier</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ImageProfileSupport.html">ImageProfileSupport</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Paging.html">Paging</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingDirection.html">ViewingDirection</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingHint.html">ViewingHint</a></li>                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-1569809891"></a>                <a href="../namespaces/IIIF.PresentationAPI.Properties.html" style="margin-left: 30px; padding-left: 0">Properties</a>
+            </div>
+            <div id="namespace-1569809891" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <ul>                            <li class="interface"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyInterface.html">PropertyInterface</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Logo.html">Logo</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.MimeAbstract.html">MimeAbstract</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyAbstract.html">PropertyAbstract</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Thumbnail.html">Thumbnail</a></li>                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-726951690"></a>                <a href="../namespaces/IIIF.PresentationAPI.Resources.html" style="margin-left: 30px; padding-left: 0">Resources</a>
+            </div>
+            <div id="namespace-726951690" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <ul>                            <li class="interface"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceInterface.html">ResourceInterface</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Annotation.html">Annotation</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.AnnotationList.html">AnnotationList</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Canvas.html">Canvas</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Collection.html">Collection</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Content.html">Content</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Layer.html">Layer</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Manifest.html">Manifest</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Range.html">Range</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceAbstract.html">ResourceAbstract</a></li>                            <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Sequence.html">Sequence</a></li>                    </ul>
                 </div>
             </div>
         </div>
     </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
+                    <ul>                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1460989073"></a>
-                                <a href="../namespaces/IIIF.PresentationAPI.Metadata.html" style="margin-left: 30px; padding-left: 0">Metadata</a>
+            <div class="accordion-heading">                    <a class="accordion-togglecollapsed" data-toggle="collapse" data-target="#namespace-1553142298"></a>                <a href="../namespaces/IIIF.Utils.html" style="margin-left: 30px; padding-left: 0">Utils</a>
             </div>
-            <div id="namespace-1460989073" class="accordion-body collapse ">
+            <div id="namespace-1553142298" class="accordion-body collapse">
                 <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Metadata.MetadataInterface.html">MetadataInterface</a></li>
-                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Metadata.Metadata.html">Metadata</a></li>
-                                            </ul>
+                    <ul>                            <li class="class"><a href="../classes/IIIF.Utils.ArrayCreator.html">ArrayCreator</a></li>                            <li class="class"><a href="../classes/IIIF.Utils.Validator.html">Validator</a></li>                    </ul>
                 </div>
             </div>
         </div>
     </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-223320209"></a>
-                                <a href="../namespaces/IIIF.PresentationAPI.Parameters.html" style="margin-left: 30px; padding-left: 0">Parameters</a>
-            </div>
-            <div id="namespace-223320209" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.DCType.html">DCType</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Identifier.html">Identifier</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ImageProfileSupport.html">ImageProfileSupport</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.Paging.html">Paging</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingDirection.html">ViewingDirection</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Parameters.ViewingHint.html">ViewingHint</a></li>
-                                            </ul>
+                    <ul>                            <li class="class"><a href="../classes/IIIF.Generator.html">Generator</a></li>                    </ul>
                 </div>
             </div>
         </div>
     </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1606717293"></a>
-                                <a href="../namespaces/IIIF.PresentationAPI.Properties.html" style="margin-left: 30px; padding-left: 0">Properties</a>
-            </div>
-            <div id="namespace-1606717293" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyInterface.html">PropertyInterface</a></li>
-                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Logo.html">Logo</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.MimeAbstract.html">MimeAbstract</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.PropertyAbstract.html">PropertyAbstract</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Properties.Thumbnail.html">Thumbnail</a></li>
-                                            </ul>
+                    <ul>                    </ul>
                 </div>
             </div>
         </div>
     </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1200196977"></a>
-                                <a href="../namespaces/IIIF.PresentationAPI.Resources.html" style="margin-left: 30px; padding-left: 0">Resources</a>
-            </div>
-            <div id="namespace-1200196977" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceInterface.html">ResourceInterface</a></li>
-                                                                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Annotation.html">Annotation</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.AnnotationList.html">AnnotationList</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Canvas.html">Canvas</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Collection.html">Collection</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Content.html">Content</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Layer.html">Layer</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Manifest.html">Manifest</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Range.html">Range</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.ResourceAbstract.html">ResourceAbstract</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.PresentationAPI.Resources.Sequence.html">Sequence</a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1871513089"></a>
-                                <a href="../namespaces/IIIF.Utils.html" style="margin-left: 30px; padding-left: 0">Utils</a>
-            </div>
-            <div id="namespace-1871513089" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="../classes/IIIF.Utils.ArrayCreator.html">ArrayCreator</a></li>
-                                                    <li class="class"><a href="../classes/IIIF.Utils.Validator.html">Validator</a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="../classes/IIIF.Generator.html">Generator</a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
         </div>
     </section>
     <section class="row-fluid">
         <div class="span10 offset2">
             <div class="row-fluid">
                 <div class="span8 content file">
-                    <nav>
-                                                                    </nav>
+                    <nav>                    </nav>
 
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
                     <h1><small>PresentationAPI/Resources</small>Canvas.php</h1>
-                    <p><em></em></p>
-                    
-
-                    
-                    
-                                        <h2>Classes</h2>
-                    <table class="table table-hover">
-                                            <tr>
+                    <p><em></em></p>                    <h2>Classes</h2>
+                    <table class="table table-hover">                        <tr>
                             <td><a href="../classes/IIIF.PresentationAPI.Resources.Canvas.html">Canvas</a></td>
                             <td><em>Implementation of a Canvas resource:
 http://iiif.io/api/presentation/2.1/#canvas</em></td>
-                        </tr>
-                                        </table>
-                                    </div>
+                        </tr>                    </table>                </div>
 
                 <aside class="span4 detailsbar">
-                    <dl>
-                                                    <dt>Package</dt>
+                    <dl>                            <dt>Package</dt>
                             <dd><div class="namespace-wrapper">\Default</div></dd>
-                        
-                        
                     </dl>
                     <h2>Tags</h2>
-                    <table class="table table-condensed">
-                                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                                            </table>
+                    <table class="table table-condensed">                            <tr><td colspan="2"><em>None found</em></td></tr>                    </table>
 
                 </aside>
             </div>
-
-            
-            
         </div>
     </section>
 
@@ -382,30 +258,24 @@ http://iiif.io/api/presentation/2.1/#canvas</em></td>
             <pre data-src="../files/PresentationAPI/Resources/Canvas.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
-
     <footer class="row-fluid">
         <section class="span10 offset2">
             <section class="row-fluid">
                 <section class="span10 offset1">
                     <section class="row-fluid footer-sections">
-                        <section class="span4">
-                                                        <h1><i class="icon-code"></i></h1>
+                        <section class="span4">                            <h1><i class="icon-code"></i></h1>
                             <div>
-                                <ul>
-                                                                            <li><a href="../namespaces/IIIF.html">\IIIF</a></li>
-                                                                    </ul>
+                                <ul>                                        <li><a href="../namespaces/IIIF.html">\IIIF</a></li>                                </ul>
                             </div>
                         </section>
-                        <section class="span4">
-                                                        <h1><i class="icon-bar-chart"></i></h1>
+                        <section class="span4">                            <h1><i class="icon-bar-chart"></i></h1>
                             <div>
                                 <ul>
                                     <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
                                 </ul>
                             </div>
                         </section>
-                        <section class="span4">
-                                                        <h1><i class="icon-pushpin"></i></h1>
+                        <section class="span4">                            <h1><i class="icon-pushpin"></i></h1>
                             <div>
                                 <ul>
                                     <li><a href="../reports/errors.html">Errors</a></li>
@@ -420,9 +290,7 @@ http://iiif.io/api/presentation/2.1/#canvas</em></td>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on 
-
-September 29th, 2016 at 18:38.
+                    onFebruary 19th, 2021 at 20:33.
                 </section>
             </section>
         </section>
