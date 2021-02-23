@@ -68,7 +68,7 @@ class Canvas extends ResourceAbstract {
     /**
      * Set the height.
      *
-     * @param string $height
+     * @param int $height
      */
     public function setHeight($height)
     {
@@ -78,7 +78,7 @@ class Canvas extends ResourceAbstract {
     /**
      * Get the height.
      *
-     * @return string
+     * @return int
      */
     public function getHeight()
     {
