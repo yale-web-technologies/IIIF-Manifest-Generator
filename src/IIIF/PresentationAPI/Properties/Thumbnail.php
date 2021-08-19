@@ -22,7 +22,9 @@
 */
 namespace IIIF\PresentationAPI\Properties;
 
+use IIIF\PresentationAPI\Parameters\Identifier;
 use IIIF\PresentationAPI\Properties\MimeAbstract;
+use IIIF\Utils\ArrayCreator;
 
 /**
  * Implementation of thumbnail descriptive property
@@ -30,4 +32,79 @@ use IIIF\PresentationAPI\Properties\MimeAbstract;
  *
  */
 class Thumbnail extends MimeAbstract {
+
+    private $type;
+    private $width;
+    private $height;
+
+  /**
+   * Set the type.
+   *
+   * @param string $type
+   */
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  /**
+   * Get the type.
+   *
+   * @return string
+   */
+  public function getType()
+  {
+    return $this->type;
+  }
+
+  /**
+   * Set the width.
+   *
+   * @param int $width
+   */
+  public function setWidth($width)
+  {
+    $this->width = $width;
+  }
+
+  /**
+   * Get the width.
+   *
+   * @return int
+   */
+  public function getWidth()
+  {
+    return $this->width;
+  }
+
+  /**
+   * Set the height.
+   *
+   * @param int $height
+   */
+  public function setHeight($height)
+  {
+    $this->height = $height;
+  }
+
+  /**
+   * Get the height.
+   *
+   * @return int
+   */
+  public function getHeight()
+  {
+    return $this->height;
+  }
+
+  public function toArray() {
+    $item = parent::toArray();
+
+    ArrayCreator::addIfExists($item, Identifier::TYPE, $this->getType());
+    ArrayCreator::addIfExists($item, Identifier::HEIGHT, $this->getHeight());
+    ArrayCreator::addIfExists($item, Identifier::WIDTH, $this->getWidth());
+
+    return $item;
+  }
+
 }
