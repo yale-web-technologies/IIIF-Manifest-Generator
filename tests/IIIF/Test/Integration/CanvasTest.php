@@ -24,6 +24,7 @@
 namespace IIIF\Test\Integration;
 
 use IIIF\Generator;
+use IIIF\PresentationAPI\Properties\Thumbnail;
 use IIIF\PresentationAPI\Resources\Annotation;
 use IIIF\PresentationAPI\Resources\AnnotationList;
 use IIIF\PresentationAPI\Resources\Canvas;
@@ -54,6 +55,12 @@ class CanvasTest extends TestCase
         $canvas->addLabel("p. 1");
         $canvas->setHeight(1000);
         $canvas->setWidth(750);
+
+        $thumbnail = new Thumbnail();
+        $canvas->addThumbnail($thumbnail);
+        $thumbnail->setID('http://example.org/iiif/book1/canvas/p1/thumb.jpg');
+        $thumbnail->setHeight(200);
+        $thumbnail->setWidth(150);
 
         $annotation = new Annotation();
         $canvas->addImage($annotation);
