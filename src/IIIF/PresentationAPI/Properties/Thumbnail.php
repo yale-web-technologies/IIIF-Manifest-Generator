@@ -22,6 +22,7 @@
 */
 namespace IIIF\PresentationAPI\Properties;
 
+use IIIF\PresentationAPI\Parameters\DCType;
 use IIIF\PresentationAPI\Parameters\Identifier;
 use IIIF\PresentationAPI\Properties\MimeAbstract;
 use IIIF\Utils\ArrayCreator;
@@ -33,29 +34,8 @@ use IIIF\Utils\ArrayCreator;
  */
 class Thumbnail extends MimeAbstract {
 
-    private $type;
     private $width;
     private $height;
-
-  /**
-   * Set the type.
-   *
-   * @param string $type
-   */
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
-
-  /**
-   * Get the type.
-   *
-   * @return string
-   */
-  public function getType()
-  {
-    return $this->type;
-  }
 
   /**
    * Set the width.
@@ -100,7 +80,7 @@ class Thumbnail extends MimeAbstract {
   public function toArray() {
     $item = parent::toArray();
 
-    ArrayCreator::addIfExists($item, Identifier::TYPE, $this->getType());
+    ArrayCreator::add($item, Identifier::TYPE, DCType::IMAGE);
     ArrayCreator::addIfExists($item, Identifier::HEIGHT, $this->getHeight());
     ArrayCreator::addIfExists($item, Identifier::WIDTH, $this->getWidth());
 
