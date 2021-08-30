@@ -25,7 +25,7 @@ namespace IIIF\Test\Unit\PresentationAPI\Properties;
 
 use IIIF\PresentationAPI\Parameters\DCType;
 use IIIF\PresentationAPI\Parameters\Identifier;
-use IIIF\PresentationAPI\Properties\Thumbnaul;
+use IIIF\PresentationAPI\Properties\Thumbnail;
 use PHPUnit\Framework\TestCase;
 
 
@@ -60,7 +60,7 @@ class ThumbnailTest extends TestCase
 
         $this->thumbnail->setHeight($height);
 
-        $this->assertEquals($width, $this->thumbnail->getHeight());
+        $this->assertEquals($height, $this->thumbnail->getHeight());
     }
 
 
@@ -69,15 +69,16 @@ class ThumbnailTest extends TestCase
      */
     public function testToArray()
     {
+        $id = "http://example.org/iiif/book1/canvas/p1/thumb.jpg";
         $width = 200;
         $height = 500;
 
-        $this->thumbnail-setWidth($width);
-        $this->thumbnail-setHeight($height);
+        $this->thumbnail->setID($id);
+        $this->thumbnail->setWidth($width);
+        $this->thumbnail->setHeight($height);
 
         $array = $this->thumbnail->toArray();
 
-        $this->assertEquals($this->thumbnail->type, $array[Identifier::TYPE]);
         $this->assertEquals($width, $array[Identifier::WIDTH]);
         $this->assertEquals($height, $array[Identifier::HEIGHT]);
     }
