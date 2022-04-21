@@ -2,6 +2,9 @@
   "@context": "http://iiif.io/api/presentation/2/context.json",
   "@id": "http://example.org/iiif/book1/manifest",
   "@type": "sc:Manifest",
+  "viewingHint": "paged",
+  "viewingDirection": "right-to-left",
+  "navDate": "1856-01-01T00:00:00Z",
   "label": "Book 1",
   "metadata": [
     {"label": "Author", "value": "Anne Author"},
@@ -21,14 +24,11 @@
       "@context": "http://iiif.io/api/image/2/context.json",
       "@id": "http://example.org/images/book1-page1",
       "profile": "http://iiif.io/api/image/2/level1.json"
-    }
+    },
+    "@type": "dctypes:Image"
   },
-  "viewingDirection": "right-to-left",
-  "viewingHint": "paged",
-  "navDate": "1856-01-01T00:00:00Z",
   "license": "http://example.org/license.html",
   "attribution": "Provided by Example Organization",
-
   "logo": {
     "@id": "http://example.org/logos/institution1.jpg",
     "service": {
