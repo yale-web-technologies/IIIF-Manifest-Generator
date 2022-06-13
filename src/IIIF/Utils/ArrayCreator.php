@@ -88,9 +88,11 @@ class ArrayCreator {
           }
         }
         else {
-         if (method_exists($value, "toArray")) {
-           $value = $value->toArray();
-         }
+          if (is_int($value)) {
+            //
+          } elseif (method_exists($value, "toArray")) {
+            $value = $value->toArray();
+          }
         }
 
         return $value;
