@@ -34,7 +34,7 @@ class AnnotationListTest extends TestCase
 {
     private $annotationlist;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->annotationlist = new AnnotationList();
     }

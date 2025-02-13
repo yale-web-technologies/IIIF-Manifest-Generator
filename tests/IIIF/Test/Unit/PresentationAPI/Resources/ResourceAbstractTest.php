@@ -49,7 +49,7 @@ class ResourceAbstractTest extends TestCase
 
     private $resource;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->resource = new Resource();
     }

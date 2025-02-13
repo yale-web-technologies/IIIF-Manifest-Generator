@@ -34,7 +34,7 @@ class RangeTest extends TestCase
 {
     private $range;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->range = new Range();
     }

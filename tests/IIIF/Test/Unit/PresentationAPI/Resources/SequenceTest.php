@@ -36,7 +36,7 @@ class SequenceTest extends TestCase
 {
     private $sequence;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->sequence = new Sequence();
     }

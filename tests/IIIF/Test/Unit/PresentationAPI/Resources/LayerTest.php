@@ -34,7 +34,7 @@ class LayerTest extends TestCase
 {
     private $layer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->layer = new Layer();
     }

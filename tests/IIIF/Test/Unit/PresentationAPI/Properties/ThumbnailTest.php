@@ -33,7 +33,7 @@ class ThumbnailTest extends TestCase
 {
     private $thumbnail;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->thumbnail = new Thumbnail();
     }

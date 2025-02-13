@@ -31,7 +31,7 @@ class RenderingTest extends TestCase
 {
     private $rendering;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->rendering = new Rendering();
     }

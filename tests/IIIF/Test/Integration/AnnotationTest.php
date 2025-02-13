@@ -39,7 +39,7 @@ class AnnotationTest extends TestCase
 
     private $generator;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->generator = new Generator();
     }

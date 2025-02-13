@@ -40,7 +40,7 @@ class MimeAbstractTest extends TestCase
     private $mime;
     private $service;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->mime = new Mime();
         $this->service = $this->createMock(Service::class);

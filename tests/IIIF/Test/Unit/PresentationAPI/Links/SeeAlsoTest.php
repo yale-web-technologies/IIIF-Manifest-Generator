@@ -31,7 +31,7 @@ class SeeAlsoTest extends TestCase
 {
     private $seeAlso;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->seeAlso = new SeeAlso();
     }
