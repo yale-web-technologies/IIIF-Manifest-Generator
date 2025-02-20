@@ -40,7 +40,16 @@ Resources are mapped to class types.  Methods are available to add objects embed
   $canvas->setWidth(500);
   $canvas->setHeight(500);
 ```
-See the docs folder for implementation specifications.
+
+### Generating Documentation
+Documentation is generated through [`phpdocumentor`](https://docs.phpdoc.org/). To create the documentation run the following:
+
+```sh
+composer install
+composer docs
+```
+
+To modify how the documentation is generated, a custom `phpdoc.xml` file can be provided. See the [`phpdocumentor` configuration docs](https://docs.phpdoc.org/guide/getting-started/configuration.html#configuration) for more details.
 
 ## Contributing ##
 ### Developing with Docker ###
