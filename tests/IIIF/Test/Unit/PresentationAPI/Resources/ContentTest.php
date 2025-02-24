@@ -33,7 +33,7 @@ class ContentTest extends TestCase
 {
     private $content;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->content = new Content();
     }

@@ -47,7 +47,7 @@ class PropertyAbstractTest extends TestCase
 {
     private $property;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->property = new Property();
     }

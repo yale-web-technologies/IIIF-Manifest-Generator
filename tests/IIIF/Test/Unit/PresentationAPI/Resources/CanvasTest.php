@@ -33,7 +33,7 @@ class CanvasTest extends TestCase
 {
     private $canvas;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->canvas = new Canvas();
     }

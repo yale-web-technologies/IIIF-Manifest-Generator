@@ -36,7 +36,7 @@ class LinkAbstractTest extends TestCase
 {
     private $link;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->link = new Link();
     }

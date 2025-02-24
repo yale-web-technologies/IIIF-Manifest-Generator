@@ -35,7 +35,7 @@ class ManifestTest extends TestCase
 {
     private $manifest;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->manifest = new Manifest();
     }

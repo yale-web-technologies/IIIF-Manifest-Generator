@@ -32,7 +32,7 @@ class AnnotationTest extends TestCase
 {
     private $annotation;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->annotation = new Annotation();
     }
