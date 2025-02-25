@@ -21,6 +21,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit tests"
+        "test": "vendor/bin/phpunit tests",
+        "docs": "vendor/bin/phpdoc"
     }
 }
