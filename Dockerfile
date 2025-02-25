@@ -5,4 +5,4 @@ WORKDIR /usr/src/myapp
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 RUN /usr/bin/composer install
 
-CMD [ "vendor/bin/phpunit", "./tests" ]
+CMD [ "composer", "test" ]
