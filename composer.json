@@ -1,7 +1,7 @@
 {
     "name": "yale-web-technologies/iiif-manifest-generator",
     "description": "This is a IIIF Manifest Generator written in PHP. It implements the IIIF API Specification. Currently this only supports the Presentation API.",
-    "license": "GPL-3.0",
+    "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4" : {
             "IIIF\\": "src/IIIF/"
