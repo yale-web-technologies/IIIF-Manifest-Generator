@@ -9,7 +9,7 @@ Requires PHP >=8.1.
 
 ### Usage ###
 Resources are mapped to class types.  Methods are available to add objects embedded within a resource. Passing true to the constructor of a resource will make it a top level resource within the JSON.
-```PHP
+```php
 <?php
 
   require_once 'iif-manifest-generator/autoload.php';
